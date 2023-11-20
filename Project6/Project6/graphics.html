@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Untitled Document</title>
+    <style type="text/css">
+        #thumbs,
+        #image {
+            width: 700px border: solid 1px 000;
+            text-align: center;
+            margin: 0 auto 0 auto;
+            color: #000;
+            background: #eee;
+            padding: 5px;
+        }
+
+        #thumbs {
+            margin-top: 10px;
+        }
+
+        #thumbs img {
+            border: solid 1px #000;
+            margin: 5px;
+        }
+
+        #image {
+            height: 400px;
+        }
+
+        .instructions {
+            font-style: italic;
+        }
+    </style>
+    <script type="text/javascript">
+
+           <!--Begin comment for older browsers//
+
+            var imgArray = new Array(
+                'Image1Lg.jpg',
+                'Image2Lg.png',
+                'Image3Lg.png',
+                'Image4Lg.png'
+            );
+        var titleArray = new Array(
+            'Professional Chef',
+            'Fresh Cupcake',
+            'Warm Cookies',
+            'Garden-made Salad'
+        );
+        var imgPath = "Images/Fullsize/";
+        function swapImage(imgID) {
+            var theImage = document.getElementById('theImage');
+            var textDiv = document.getElementById('bottomText');
+            var newImg;
+            var textTitle;
+            newImg = imgArray[imgID];
+            theImage.src = imgPath + newImg;
+            textTitle = titleArray[imgID];
+            textDiv.innerHTML = textTitle;
+        }
+        function preloadImages() {
+            for (var i = 0; i < imgArray.length; i++) {
+                var tmpImg = new Image;
+                tmpImg.src = imgPath + imgArray[i];
+            }
+        }
+// End comment for older browsers -->
+    </script>
+
+</head>
+
+<body onload="preloadImages()">
+    
+    <img src="Images\backimage.png" alt="Back Image" width="900px">
+
+    <div>
+        <a href="" onmouseover="document.getElementById('print').src='Images/Print2.png';"
+            onmouseout="document.getElementById('print').src='Images/Print1.png';">
+
+            <img src="Images/Print1.png" alt="Print Page" width="200px" height="50px" id="print">
+
+        </a>
+    </div>
+    <div>
+        <a href="" onmouseover="document.getElementById('logo').src='Images/Logo2.png';"
+            onmouseout="document.getElementById('logo').src='Images/Logo.png';">
+
+            <img src="Images/Logo.png" alt="Logo" width="150px" height="175px" id="logo">
+
+        </a>
+    </div>
+
+    <p class="instructions">
+        <div id="thumbs">
+        <img src="Images/Thumbnails/Image1Sm.png" alt="Professional Chef"
+        onmouseover="swapImage(0);" />
+        <img src="Images/Thumbnails/Image2Sm.png" alt="Fresh Cupcake"
+        onmouseover="swapImage(1);" />
+        <img src="Images/Thumbnails/Image3Sm.png" alt="Warm Cookies"
+        onmouseover="swapImage(2);" />
+        <img src="Images/Thumbnails/Image4Sm.png" alt="Garden-made Salad"
+        onmouseover="swapImage(3);" />
+        <br />
+        </div>
+        <div id="image">
+        <img id="theImage" src="Images/FullSize/Image1Lg.png" alt="Chef" />
+        <h3 id="bottomText">Professional Chef</h3>
+        </div> 
+
+</body>
+
+</html>
